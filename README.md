@@ -29,7 +29,7 @@ Compare the probabilities obtained from both smoothing algorithms and provide an
 
 Utilize the `emotion_scores()` function from the provided `utils.py` file to get emotion scores for a sample sentence. Modify the standard probability of the bigram model using these emotion scores with the following formula:
 
-\[ P(w_i | w_{i-1}) = \left(\frac{\text{count}(w_i)}{\text{count}(w_{i-1})}\right) + \beta \]
+P(w_i | w_{i-1}) = ( count(w_i) / count(w_{i-1}) ) + β
 
 
 where \(\beta\) is the emotion component. This modification can be applied at various levels: unigram, bigram, or sample level. Use this modified model to generate samples oriented towards specific emotions.
