@@ -31,6 +31,7 @@ Utilize the `emotion_scores()` function from the provided `utils.py` file to get
 
 \[ P(w_i | w_{i-1}) = \left(\frac{\text{count}(w_i)}{\text{count}(w_{i-1})}\right) + \beta \]
 
+
 where \(\beta\) is the emotion component. This modification can be applied at various levels: unigram, bigram, or sample level. Use this modified model to generate samples oriented towards specific emotions.
 
 ### 4. Extrinsic Evaluation
