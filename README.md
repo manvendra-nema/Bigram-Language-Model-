@@ -1,45 +1,51 @@
+# 📚 Bigram Language Model Project
 
-# Bigram Language Model Project
+## 🔍 Overview
 
-## Overview
+Dive into the world of language models with this project, where we build a Bigram Language Model from scratch using Python and NumPy. Our goals include:
 
-This project involves creating a Bigram Language Model from scratch using standard Python methods and the NumPy library. The primary objectives are:
+- Developing a bigram model from a dataset.
+- Implementing and contrasting Laplace and Kneser-Ney smoothing techniques.
+- Enhancing bigram probabilities with emotion scores for emotion-oriented text generation.
+- Evaluating the model through generated samples and extrinsic methods.
 
-- Learning the bigram model from a dataset.
-- Implementing and comparing two smoothing algorithms: Laplace and Kneser-Ney.
-- Modifying the bigram probabilities using emotion scores to generate emotion-oriented samples.
-- Evaluating the model using generated samples and extrinsic evaluation methods.
+## 🌟 Features
 
-## Features
+### 1. 📖 Learning the Bigram Model
 
-### 1. Learning the Bigram Model
+Create a `BigramLM` class that learns from a given dataset, storing the language model and supporting essential processing and evaluation methods.
 
-Develop a `BigramLM` class that learns the bigram model from a given dataset. The class should store the learned language model and support other methods required for processing and evaluation.
+### 2. 🔧 Smoothing Algorithms
 
-### 2. Smoothing Algorithms
+Implement and compare two smoothing algorithms within the `BigramLM` class:
 
-Implement the following smoothing algorithms in the `BigramLM` class:
+- **📈 Laplace Smoothing**: Adds a constant to all counts to ensure no probability is zero.
+- **🔍 Kneser-Ney Smoothing**: Adjusts probabilities based on the diversity of contexts where a word appears.
 
-- **Laplace Smoothing**: This technique adds a small constant to all counts to ensure no probability is zero.
-- **Kneser-Ney Smoothing**: This is a more advanced smoothing technique that adjusts probabilities based on the diversity of contexts a word appears in.
+Evaluate and discuss the efficacy of each smoothing method.
 
-Compare the probabilities obtained from both smoothing algorithms and provide an argument for which one is better.
+### 3. 🎭 Emotion-Oriented Modifications
 
-### 3. Emotion-Oriented Modifications
+Utilize the `emotion_scores()` function from `utils.py` to integrate emotion scores into the bigram model. Adjust probabilities using:
 
-Utilize the `emotion_scores()` function from the provided `utils.py` file to get emotion scores for a sample sentence. Modify the standard probability of the bigram model using these emotion scores with the following formula:
+\[ P(w_i | w_{i-1}) = \left( \frac{\text{count}(w_i)}{\text{count}(w_{i-1})} \right) + \beta \]
 
-P(w_i | w_{i-1}) = ( count(w_i) / count(w_{i-1}) ) + β
+where \(\beta\) is the emotion component. Apply this at various levels (unigram, bigram, or sample) to generate emotion-specific text samples.
 
+### 4. 🧪 Extrinsic Evaluation
 
-where \(\beta\) is the emotion component. This modification can be applied at various levels: unigram, bigram, or sample level. Use this modified model to generate samples oriented towards specific emotions.
+#### a. ✍️ Generate Emotion-Oriented Samples
 
-### 4. Extrinsic Evaluation
+Create 50 samples for each of the six emotions, saving them with the format `gen_<emotion>.txt`. Use these samples to assess the language model externally.
 
-#### a. Generate Emotion-Oriented Samples
+#### b. 🧠 Train and Evaluate an SVC Model
 
-Generate 50 samples for each of the 6 emotions, using the file name format `gen_<emotion>.txt`. These samples will be used for extrinsic evaluation of the language model.
+Leverage the original corpus for training and the emotion-based samples for testing. Train a Support Vector Classifier (SVC) using Scikit-Learn and a TF-IDF vectorizer. Perform a Grid Search to optimize parameters and evaluate the emotion-enhanced modifications.
 
-#### b. Train and Evaluate an SVC Model
+## 🎯 Conclusion
 
-Use the original corpus as the training data and the generated samples as the testing data. Train a Support Vector Classifier (SVC) from the Scikit-Learn library and use the TF-IDF vectorizer for text samples. Conduct a Grid Search to find the best parameters and evaluate the performance of the emotion-based modifications.
+This project aims to provide a deep understanding of bigram language models, smoothing techniques, and the impact of emotion scores on text generation. By exploring these elements, we create a robust model capable of generating emotion-specific samples and evaluating its performance comprehensively.
+
+---
+
+Happy coding! 🚀🔍
